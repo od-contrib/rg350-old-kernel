@@ -1741,6 +1741,7 @@ void per_cpu_trap_init(bool is_boot_cpu)
 
 	change_c0_status(ST0_CU|ST0_MX|ST0_RE|ST0_FR|ST0_BEV|ST0_TS|ST0_KX|ST0_SX|ST0_UX,
 			 status_set);
+	back_to_back_c0_hazard();
 
 	if (cpu_has_mips_r2)
 		hwrena |= 0x0000000f;
